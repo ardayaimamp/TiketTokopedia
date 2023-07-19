@@ -199,7 +199,7 @@ describe("Home dashbord Tiket Tokopedia | Header Section", () => {
 
     });
 
-    it.only("Gagal ! Melakukan pencarian tiket kereta", () =>{
+    it("Gagal ! Melakukan pencarian tiket kereta", () =>{
         //pilih keberangkatan
         cy.get('[data-testid="selectorAsal"]').click()
         cy.wait(6000);
@@ -215,7 +215,7 @@ describe("Home dashbord Tiket Tokopedia | Header Section", () => {
         cy.wait(6000);
         cy.get('[data-testid="date20230815"] > .date_card > .date').click()
 
-        //klik cari tiket
+        //klik cari tiket | Button Disable
         const button = cy.get('[data-testid="searchTicketButton"]');
         button.should('be.disabled')
         // button.click({force: true});
@@ -226,10 +226,6 @@ describe("Home dashbord Tiket Tokopedia | Header Section", () => {
 
         //check Url page masih di halaman yg sama
         cy.url().should("eq", "https://tiket.tokopedia.com/kereta-api/")
-        
-
-
-
     });
 
 
